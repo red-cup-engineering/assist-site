@@ -1,0 +1,14 @@
+{
+  "name": "@561-group/assist-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The Cloudflare Worker seat of ASSIST: serves the assist.561.group dashboard and every Assist app at <id>.assist.561.group from one roster. Carries no logic of its own.",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@red-cup-engineering/assist": "workspace:*"
+  }
+}

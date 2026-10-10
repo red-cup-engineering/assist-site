@@ -1,0 +1,14 @@
+// The ASSIST Worker. Deploying it needs, from the founder: the Cloudflare account and an API token
+// with Workers Scripts:Edit on the 561.group zone, a proxied DNS record for assist.561.group and
+// for *.assist.561.group, and the two routes below admitted on that zone.
+{
+  "name": "assist-561-group",
+  "main": "src/index.mjs",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "assist.561.group/*", "zone_name": "561.group" },
+    { "pattern": "*.assist.561.group/*", "zone_name": "561.group" }
+  ]
+}
