@@ -10,5 +10,9 @@
   },
   "dependencies": {
     "@red-cup-engineering/assist": "workspace:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/assist-site.git"
   }
 }
