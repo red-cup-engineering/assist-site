@@ -4,7 +4,9 @@
 // This source configuration does not establish that binding or transfer roster custody.
 // The ASSIST Worker. Deploying it needs, from the founder: the Cloudflare account and an API token
 // with Workers Scripts:Edit on the 561.group zone, a proxied DNS record for assist.561.group and
-// for *.assist.561.group, and the two routes below admitted on that zone.
+// for *.assist.561.group plus the exact Bazaaro domain, and the selected routes below admitted on that zone.
+// The exact alias is not covered by the ASSIST wildcard; the deploying custodian must bind
+// bazaaro.561.group DNS/TLS and supply the source-qualified Bazaaro roster record.
 {
   "name": "assist-561-group",
   "main": "src/index.mjs",
@@ -13,6 +15,7 @@
   "workers_dev": false,
   "routes": [
     { "pattern": "assist.561.group/*", "zone_name": "561.group" },
-    { "pattern": "*.assist.561.group/*", "zone_name": "561.group" }
+    { "pattern": "*.assist.561.group/*", "zone_name": "561.group" },
+    { "pattern": "bazaaro.561.group/*", "zone_name": "561.group" }
   ]
 }
