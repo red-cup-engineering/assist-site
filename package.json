@@ -1,15 +1,16 @@
 {
   "name": "@561-group/assist-site",
-  "version": "0.1.0",
+  "version": "0.2.0-dev.1",
   "private": true,
   "type": "module",
   "description": "The Cloudflare Worker seat of ASSIST: serves the assist.561.group dashboard and every Assist app at <id>.assist.561.group from one roster. Carries no logic of its own.",
   "scripts": {
     "test": "node --test test/*.test.mjs",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "build": "node scripts/build.mjs"
   },
   "dependencies": {
-    "@red-cup-engineering/assist": "workspace:*"
+    "@red-cup-engineering/assist": "0.7.0-dev.1"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
   "funding": {
     "type": "individual",
     "url": "https://github.com/561-group/.github/blob/main/TIPS.md"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.11"
   }
 }

@@ -1,11 +1,11 @@
-// The ASSIST Worker. Deploying it needs, from the founder: the Cloudflare account and an API token
-// with Workers Scripts:Edit on the 561.group zone, a proxied DNS record for assist.561.group and
-// for *.assist.561.group, and the two routes below admitted on that zone.
+// Build the original Worker with one explicit public instance roster first:
+// npm run build -- --roster /instance/public-roster.json --out dist/worker.mjs
+// Source instance data is an immutable bundle input, not a large environment variable.
+// The same artifact may be served by the existing authorized cloud deployment writer.
 {
   "name": "assist-561-group",
-  "main": "src/index.mjs",
-  "compatibility_date": "2026-09-01",
-  "compatibility_flags": ["nodejs_compat"],
+  "main": "dist/worker.mjs",
+  "compatibility_date": "2026-07-30",
   "workers_dev": false,
   "routes": [
     { "pattern": "assist.561.group/*", "zone_name": "561.group" },
