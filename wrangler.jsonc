@@ -1,3 +1,7 @@
+// INSTANCE MIGRATION REQUIRED before receiving or deploying this source revision:
+// the existing instance custodian must bind ASSIST_ROSTER to its admitted { records, conditions }
+// object or JSON string. Missing input refuses requests; no example roster is a default.
+// This source configuration does not establish that binding or transfer roster custody.
 // The ASSIST Worker. Deploying it needs, from the founder: the Cloudflare account and an API token
 // with Workers Scripts:Edit on the 561.group zone, a proxied DNS record for assist.561.group and
 // for *.assist.561.group, and the two routes below admitted on that zone.
