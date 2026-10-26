@@ -6,12 +6,12 @@ let previousApex;
 let previousHostMode;
 let previousApplication;
 
-function applicationFor(binding, apex, hostMode) {
-  if (typeof binding === "string" && binding === previousBinding &&
+function applicationFor(binding, apex, hostMode, presentations) {
+  if (presentations === undefined && typeof binding === "string" && binding === previousBinding &&
       apex === previousApex && hostMode === previousHostMode) return previousApplication;
   const { records, conditions } = boundAssistRecordSet(binding);
-  const application = createAssistApplication({ records, conditions, apex, hostMode });
-  if (typeof binding === "string") {
+  const application = createAssistApplication({ records, conditions, apex, hostMode, presentations });
+  if (presentations === undefined && typeof binding === "string") {
     previousBinding = binding;
     previousApex = apex;
     previousHostMode = hostMode;
@@ -25,9 +25,9 @@ const unavailable = () => Response.json({ type: "about:blank", title: "ASSIST in
 
 /** The deployment binds one immutable source roster. This avoids a large Cloudflare
  * variable and introduces no second application, route parser or response rewrite. */
-export function createAssistWorker({ roster, apex, hostMode } = {}) {
+export function createAssistWorker({ roster, apex, hostMode, presentations } = {}) {
   const binding = typeof roster === "string" ? roster : JSON.stringify(roster);
-  const application = applicationFor(binding, apex, hostMode);
+  const application = applicationFor(binding, apex, hostMode, presentations);
   return Object.freeze({ fetch: request => application.fetch(request) });
 }
 
