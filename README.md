@@ -107,7 +107,7 @@ the hostname and mode. Object bindings are admitted on every request.
 
 ## Exact release cohort
 
-Candidate `0.2.1-dev.0` selects ASSIST `0.7.1-dev.0`, MOOSE
+Candidate `0.2.2-dev.0` selects ASSIST `0.7.2-dev.0`, MOOSE
 `0.1.0-dev.3`, Living Web Server `0.1.0-dev.11` and TUFTE
 `0.17.0-dev.0`. A source-built cohort may be used before registry publication
 when the host explicitly selects and verifies each original archive; version
@@ -115,5 +115,10 @@ strings alone do not qualify an installation. The application remains a public
 read-only guide until its original authenticated providers are separately
 installed and admitted. Public provider rules do not assert that a visitor has
 passed KYC, completed a task or earned a reward.
+
+ASSIST's allocation preview remains an authenticated provider capability. Its
+host must admit the principal, immutable Player-Character strategy, settled
+earning receipts and allocation inputs. Selecting this package does not expose
+that operation through the public Worker or turn visitor input into evidence.
 
 Cloudflare limits: https://developers.cloudflare.com/workers/platform/limits/
