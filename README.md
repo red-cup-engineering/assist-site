@@ -50,6 +50,36 @@ release and cannot be changed by a request or environment object.
 
 ## Receive and deploy the artifact
 
+### Preserve an existing cloud origin while restoring canonical hostnames
+
+The same original application can receive several explicit presentations from
+one source-owned JSON file. For example:
+
+```json
+[
+  { "apex": "assist.provider.example", "hostMode": "paths" },
+  { "apex": "assist.561.group", "hostMode": "subdomains", "except": ["kalshi"] }
+]
+```
+
+```sh
+npm run build -- --roster /instance/assist-public-roster.json --presentations /instance/assist-presentations.json --out dist/worker.mjs
+```
+
+Each face keeps its own navigation and the original canonical app identities.
+The original ASSIST application admits the full hostname set before building;
+ambiguous hosts, unknown exclusions and mixed `--presentations` with legacy
+`--apex` or `--host-mode` inputs refuse. It uses the same MOOSE resource routing,
+source authorization and method boundary. The Worker does not rewrite URLs or
+responses and adds no second route parser.
+
+The `except` list preserves a standalone native app's subdomain handler. Its
+public `/apps/:id` guide remains readable at admitted roots. A cloud host must
+attach only the selected domain names, preserving the existing Kalshi backend.
+Building or deploying this bundle does not create DNS records, attach a custom
+hostname or establish TLS. Keep each missing external binding explicit until
+independent public receiving succeeds.
+
 Run the original instance receiving test with
 `ASSIST_TEST_ROSTER_PATH=/absolute/path/to/instance-roster.json npm test`.
 The supplied file must contain the actual authorized roster, including its
@@ -77,7 +107,7 @@ the hostname and mode. Object bindings are admitted on every request.
 
 ## Exact release cohort
 
-Candidate `0.2.0-dev.1` selects ASSIST `0.7.0-dev.1`, MOOSE
+Candidate `0.2.1-dev.0` selects ASSIST `0.7.1-dev.0`, MOOSE
 `0.1.0-dev.3`, Living Web Server `0.1.0-dev.11` and TUFTE
 `0.17.0-dev.0`. A source-built cohort may be used before registry publication
 when the host explicitly selects and verifies each original archive; version
