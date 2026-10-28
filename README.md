@@ -96,6 +96,24 @@ receipts. Existing native apps, such as the protected Kalshi workspace, retain
 their original host handlers and authentication; a public guide does not
 replace portfolio, account or financial services.
 
+### Exact first-party ASSIST consumer routes
+
+The original single Worker source configuration has explicit zone routes for
+`bazaaro.561.group/*` and `worm-assist.561.group/*` alongside
+`assist.561.group/*` and `*.assist.561.group/*`. This receives the original
+source-only route requirements formerly carried by Worker PRs #2 and #3
+without reverting the immutable `dist/worker.mjs` build selected on `main`.
+
+A route is **not** a functioning product or authorization. To go live, the
+independently authorized host custodian must supply a compatible published
+ASSIST runtime with the original source-record `alternateHosts` admission,
+the exact Bazaaro and Worm application records, selected immutable roster,
+DNS/TLS and Cloudflare zone bindings, and independent HTTP journeys at both
+hostnames. Source records and production conditions remain owned by the
+respective original enterprise/service and operations systems. Until then
+these host aliases are only release candidates; they confer no market,
+payment, sensor, customer-data or Work authority.
+
 ## Small binding compatibility
 
 The default export continues to support `ASSIST_ROSTER` as an object or JSON
