@@ -2,6 +2,8 @@
 // npm run build -- --roster /instance/public-roster.json --out dist/worker.mjs
 // Source instance data is an immutable bundle input, not a large environment variable.
 // The same artifact may be served by the existing authorized cloud deployment writer.
+// Exact aliases require authorized source records, compatible ASSIST runtime, DNS/TLS
+// and independently witnessed public deployment; route source alone is not a live site.
 {
   "name": "assist-561-group",
   "main": "dist/worker.mjs",
@@ -9,6 +11,8 @@
   "workers_dev": false,
   "routes": [
     { "pattern": "assist.561.group/*", "zone_name": "561.group" },
-    { "pattern": "*.assist.561.group/*", "zone_name": "561.group" }
+    { "pattern": "*.assist.561.group/*", "zone_name": "561.group" },
+    { "pattern": "bazaaro.561.group/*", "zone_name": "561.group" },
+    { "pattern": "worm-assist.561.group/*", "zone_name": "561.group" }
   ]
 }
