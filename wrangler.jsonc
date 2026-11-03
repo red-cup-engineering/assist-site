@@ -4,6 +4,18 @@
 // The same artifact may be served by the existing authorized cloud deployment writer.
 // Exact aliases require authorized source records, compatible ASSIST runtime, DNS/TLS
 // and independently witnessed public deployment; route source alone is not a live site.
+// INSTANCE MIGRATION REQUIRED before receiving or deploying this source revision:
+// the existing instance custodian must bind ASSIST_ROSTER to its admitted { records, conditions }
+// object or JSON string. Missing input refuses requests; no example roster is a default.
+// This source configuration does not establish that binding or transfer roster custody.
+// The ASSIST Worker. Deploying it needs, from the founder: the Cloudflare account and an API token
+// with Workers Scripts:Edit on the 561.group zone, a proxied DNS record for assist.561.group and
+// for *.assist.561.group plus the exact Bazaaro domain, and the selected routes below admitted on that zone.
+// The exact alias is not covered by the ASSIST wildcard; the deploying custodian must bind
+// bazaaro.561.group DNS/TLS and supply the source-qualified Bazaaro roster record.
+// Likewise worm-assist.561.group needs its own exact first-party route, DNS/TLS,
+// an ASSIST runtime with primaryHost admission and the original Worm app record.
+// Neither DNS nor ASSIST_ROSTER is provisioned by this configuration change.
 {
   "name": "assist-561-group",
   "main": "dist/worker.mjs",
