@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import worker from "../src/index.mjs";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -15,9 +16,9 @@ test("Bazaaro's selected exact hostname has one explicit shared ASSIST Worker ro
   assert.doesNotMatch(wrangler, /"name":\s*"bazaaro-/);
 });
 
-test("the original instance roster remains required; a route confers no market or signing grant", () => {
-  const worker = readFileSync(join(root, "src/index.mjs"), "utf8");
-  assert.match(worker, /boundAssistRecordSet\(env\?\.ASSIST_ROSTER\)/);
-  assert.doesNotMatch(worker, /const assistAppRecords\s*=/);
-  assert.doesNotMatch(worker, /sendTransaction|wallet\.sign|marketOrder/);
+test("the original instance roster remains required; a route confers no market or signing grant", async () => {
+  const source = readFileSync(join(root, "src/index.mjs"), "utf8");
+  assert.equal((await worker.fetch(new Request("https://bazaaro.561.group/"), {})).status, 503);
+  assert.doesNotMatch(source, /const assistAppRecords\s*=/);
+  assert.doesNotMatch(source, /sendTransaction|wallet\.sign|marketOrder/);
 });
